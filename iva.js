@@ -19,3 +19,18 @@ function calcularImporte(base, tipo = ivaNormal) {
 
 const importe = calcularImporte(precio, 10);
 console.log("El importe IVA incluido es: " + importe);
+
+function obtenerDesglose(base, tipo = ivaNormal) {
+  const desglose = {
+    base: base,
+    tipo: tipo,
+    cuota: calcularCouta(base, tipo),
+    importe: calcularImporte(base, tipo),
+    formaDePago: {
+      medio: "tarjeta",
+      cambio: 0,
+    },
+  };
+  return desglose;
+}
+console.log(obtenerDesglose(precio));
