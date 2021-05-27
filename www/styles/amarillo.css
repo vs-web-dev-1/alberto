@@ -1,0 +1,23 @@
+h1 {
+  color: yellow;
+}
+h2 {
+  background-color: yellowgreen;
+}
+a {
+  color: coral;
+}
+.verde {
+  color: lightgreen;
+}
+#main-title {
+  font-style: italic;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: navy;
+  color: aliceblue;
+}
+div > h2 {
+  font-size: smaller;
+}
