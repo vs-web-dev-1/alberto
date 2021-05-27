@@ -20,4 +20,6 @@ body {
 }
 div > h2 {
   font-size: smaller;
+  margin: 5em;
+  padding: 15px;
 }
