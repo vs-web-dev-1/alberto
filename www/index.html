@@ -2,6 +2,7 @@
 <html lang="es">
 
   <head>
+    <meta>
     <title>Hola Mundo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -9,27 +10,53 @@
     <meta name="keywords" content="tutorial, html, vector, softtek, alberto basalo">
     <!-- <link rel="stylesheet" href="./styles/reset.css"> -->
     <!-- <link rel="stylesheet" href="./styles/amarillo.css"> -->
-    <link rel="stylesheet" href="./styles/milligram.css">
+    <!-- <link rel="stylesheet" href="./styles/milligram.css"> -->
+    <link rel="stylesheet" href="./styles/marx.css">
   </head>
 
   <body>
-    <h1 id="main-title">Hola Mundo</h1>
-    <h1 class="verde">Otro título importante</h1>
-    <p> Esto es un párrafo </p>
-    <!-- esto es un comentario -->
-    <h2>Esto es de nivel 2</h2>
-    <div>
-      <h2>Esto es el título de una sección</h2>
-      <p>Este es el <b class="verde">contenido</b> de la <i>sección</i></p>
-    </div>
-    <p>
-      <a
-         class="verde"
-         href="https://twitter.com/albertobasalo"> Escrito por Alberto Basalo</a>
-    </p>
-    <p style="font-family: 'Courier New', Courier, monospace;">
-      <a href="./otro.html">Otro documento para saber más</a>
-    </p>
+    <header>
+      <h1 id="main-title">Hola Mundo</h1>
+      <nav>
+        <p>
+          <a href="./otro.html">Otro documento para saber más</a>
+        </p>
+        <p>
+          <a href="./styles/milligram.css">Con el estilo de Milligram</a>
+        </p>
+      </nav>
+    </header>
+    <main>
+      <h1 class="verde">Otro título importante</h1>
+      <p> Esto es un párrafo </p>
+      <!-- esto es un comentario -->
+      <h2>Esto es de nivel 2</h2>
+      <article>
+        <h2>Esto es el título de una sección</h2>
+        <p>Este es el <b class="verde">contenido</b> de la <i>sección</i></p>
+      </article>
+      <article>
+        <header>
+          <h2>Esto es otro artículo</h2>
+          <p>Descripción breve</p>
+        </header>
+        <main>
+          <section>
+            <p>Características</p>
+          </section>
+          <section>
+            <p>Precio</p>
+          </section>
+        </main>
+      </article>
+    </main>
+    <footer>
+      <p>
+        <a
+           class="verde"
+           href="https://twitter.com/albertobasalo"> Escrito por Alberto Basalo</a>
+      </p>
+    </footer>
   </body>
 
 </html>
