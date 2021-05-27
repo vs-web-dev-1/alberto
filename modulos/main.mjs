@@ -1,20 +1,17 @@
-import {
-  esPar,
-  funcionesNumeros as numeros,
-  obtenerCuadradosDePares,
-  TAMAÑO as T,
-} from "./numeros.mjs";
+import { obtenerCuadrados, obtenerPares } from "./numeros.mjs";
 
-const TAMAÑO = 8;
+const numeros = [11, 12, 13, 14];
 
-numeros.inicializar();
-// numeros.mostrar();
-// console.log(numeros.n);
-// mostarPares();
-// console.log(extraerPares());
-// console.log(obtenerCuadrados());
-console.log(obtenerCuadradosDePares());
-console.log(esPar(8));
-console.log(TAMAÑO);
-console.log(T);
-console.log(numeros.TAMAÑO);
+const pares = obtenerPares(numeros);
+console.log(pares);
+
+const cuadrados = obtenerCuadrados(pares);
+console.log(cuadrados);
+
+pares.forEach((par, index) =>
+  console.log(
+    `El cuadrado
+    de ${par}
+    es ${cuadrados[index]}`
+  )
+);
