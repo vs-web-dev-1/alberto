@@ -1,19 +1,27 @@
 const frase = "en un lugar de la mancha";
-const nodoMensaje = document.getElementById("mensaje");
-nodoMensaje.innerText = "";
 let inicio;
-document.getElementById("frase").innerText = frase;
-document.getElementById("empezar").addEventListener("click", () => {
-  inicio = Date.now();
-});
+let haTerminado = false;
+
+const nodoMensaje = document.getElementById("mensaje");
+const nodoFrase = document.getElementById("frase");
+const botonEmpezar = document.getElementById("empezar");
 const inputLoTecleado = document.getElementById("lo-tecleado");
+
+nodoMensaje.innerText = "";
+nodoFrase.innerText = frase;
+
+botonEmpezar.addEventListener("click", () => {
+  inicio = Date.now();
+  haTerminado = false;
+});
 inputLoTecleado.addEventListener("input", () => {
-  let ahora = Date.now();
-  let tiempo = (ahora - inicio) / 1000;
-  let loTecleado = inputLoTecleado.value;
+  if (haTerminado) return;
+  const ahora = Date.now();
+  const tiempo = (ahora - inicio) / 1000;
+  const loTecleado = inputLoTecleado.value;
   if (loTecleado === frase) {
     nodoMensaje.innerText = "Felicidades ✨🎉🎈🌈 has tardado " + tiempo;
-    inicio = Date.now();
+    haTerminado = true;
   } else {
     nodoMensaje.innerText = "aún no va bien ❌👀🐱‍🐉 llevas " + tiempo;
   }
