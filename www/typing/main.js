@@ -11,6 +11,7 @@ nodoMensaje.innerText = "";
 nodoFrase.innerText = frase;
 
 botonEmpezar.addEventListener("click", () => {
+  inputLoTecleado.classList.remove("mal");
   inputLoTecleado.value = "";
   inicio = Date.now();
   haTerminado = false;
@@ -21,7 +22,6 @@ inputLoTecleado.addEventListener("input", () => {
   let tiempo = (ahora - inicio) / 1000;
   const loTecleado = inputLoTecleado.value;
   if (loTecleado === frase) {
-    inputLoTecleado.classList.remove("mal");
     nodoMensaje.innerText = "Felicidades ✨🎉🎈🌈 has tardado " + tiempo;
     haTerminado = true;
   } else {
