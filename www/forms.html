@@ -5,25 +5,34 @@
     <title>Formularios</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" href="./styles/reset.css"> -->
+    <!-- <link rel="stylesheet" href="./styles/marx.css"> -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/mvp.css"> -->
+    <!-- <link rel="stylesheet" href="./styles/milligram.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
   </head>
 
   <body>
-    <h1>Registro de usuarios</h1>
-    <form action="un/endpoint/que/no-existe" method="POST">
-      <fieldset>
-        <label>Nombre de usuario:</label>
-        <input type="text" name="nombre">
-        <label>Email:</label>
-        <input type="email" name="email">
-        <label>Fecha Nacimiento:</label>
-        <input type="date" name="nacimiento">
-        <label>Gatos:</label>
-        <input type="number" name="num-gatos">
-        <label>Subscribir a newsletter:</label>
-        <input type="checkbox" name="subscribir">
-      </fieldset>
-      <button>Enviar</button>
-    </form>
+    <main>
+      <h1>Registro de usuarios</h1>
+      <form action="un/endpoint/que/no-existe" method="POST">
+        <fieldset class="container">
+          <label class="label">Nombre de usuario:</label>
+          <input class="input" type="text" name="nombre">
+          <label class="label">Email:</label>
+          <input class="input" type="email" name="email">
+          <label class="label">Fecha Nacimiento:</label>
+          <input class="input" type="date" name="nacimiento">
+          <label>Gatos:</label>
+          <input type="number" name="num-gatos">
+          <label>Subscribir a newsletter:</label>
+          <input type="checkbox" name="subscribir">
+          <label>Contraseña</label>
+          <input type="password" name="contraseña">
+        </fieldset>
+        <button class="control">Enviar</button>
+      </form>
+    </main>
   </body>
 
 </html>
