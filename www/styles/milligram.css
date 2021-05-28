@@ -199,8 +199,19 @@ pre > code {
 
 hr {
   border: 0;
-  border-top: 0.1rem solid #f4f5f6;
+  border-top: 1rem solid red;
   margin: 3rem 0;
+}
+
+#separador-cabecera {
+  border-top: 1rem solid green;
+}
+
+hr.finito {
+  border-top: 0.2rem solid yellowgreen;
+}
+p.finito {
+  border-top: 0.2rem solid violet;
 }
 
 input[type="color"],
