@@ -7,11 +7,11 @@ fetch(url)
     const fechaCadena = data.date;
     console.log(fechaCadena);
     const fechaNumber = Date.parse(fechaCadena);
-    console.log(fechaNumber);
+    console.log("Unix:" + fechaNumber);
     const fecha = new Date(fechaNumber);
-    console.log(fecha.toISOString());
-    const fechaEuropea = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
-    console.log(fechaEuropea);
+    console.log("ISO:" + fecha.toISOString());
+    const fechaEuropea = `${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()}`;
+    console.log("Europa:" + fechaEuropea);
     const spanFecha = document.getElementById("fecha");
     spanFecha.innerText = fechaEuropea;
   });
