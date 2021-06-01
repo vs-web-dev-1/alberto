@@ -4,9 +4,16 @@ fetch(url)
   .then((respose) => respose.json())
   .then((data) => {
     console.log(data);
-    const fecha = data.date;
+    const fechaCadena = data.date;
+    console.log(fechaCadena);
+    const fechaNumber = Date.parse(fechaCadena);
+    console.log(fechaNumber);
+    const fecha = new Date(fechaNumber);
+    console.log(fecha.toISOString());
+    const fechaEuropea = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear();
+    console.log(fechaEuropea);
     const spanFecha = document.getElementById("fecha");
-    spanFecha.innerText = fecha;
+    spanFecha.innerText = fechaEuropea;
   });
 
 // async function obtenerDatos() {
