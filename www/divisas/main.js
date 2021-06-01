@@ -14,6 +14,16 @@ fetch(url)
     console.log("Europa:" + fechaEuropea);
     const spanFecha = document.getElementById("fecha");
     spanFecha.innerText = fechaEuropea;
+    const objetoCotizaciones = data.rates;
+    const ulCotizaciones = document.getElementById("cotizaciones");
+    // ulCotizaciones.innerText = JSON.stringify(objetoCotizaciones);
+    const divisas = Object.keys(objetoCotizaciones);
+    divisas.forEach((divisa) => {
+      const liDivisa = document.createElement("li");
+      const cotizacion = objetoCotizaciones[divisa];
+      liDivisa.innerText = divisa + " : " + cotizacion;
+      ulCotizaciones.appendChild(liDivisa);
+    });
   });
 
 // async function obtenerDatos() {
