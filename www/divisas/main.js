@@ -26,13 +26,16 @@ fetch(url)
     const divisas = Object.keys(objetoCotizaciones);
     divisas.forEach((divisa) => {
       const liDivisa = document.createElement("li");
+
       const spanDivisa = document.createElement("span");
       spanDivisa.classList.add("divisa");
       spanDivisa.innerText = divisa + " : ";
+
       const spanCotizacion = document.createElement("span");
       spanCotizacion.classList.add("contravalor");
       const cotizacion = objetoCotizaciones[divisa];
       spanCotizacion.innerText = cotizacion;
+
       // liDivisa.innerText = divisa + " : " + cotizacion;
       liDivisa.appendChild(spanDivisa);
       liDivisa.appendChild(spanCotizacion);
