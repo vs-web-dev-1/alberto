@@ -1,0 +1,15 @@
+.fecha {
+  color: green;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  font-style: italic;
+}
+.divisa {
+  font-weight: bold;
+}
+.contravalor {
+  font-style: italic;
+}
