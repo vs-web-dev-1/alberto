@@ -1,42 +1,65 @@
 const url = "https://api.frankfurter.app/latest";
 
-fetch(url)
-  .then((respose) => respose.json())
-  .then((data) => {
-    console.log(data);
-    const fechaCadena = data.date;
-    console.log(fechaCadena);
-    const fechaNumber = Date.parse(fechaCadena);
-    console.log("Unix:" + fechaNumber);
-    const fecha = new Date(fechaNumber);
-    console.log("ISO:" + fecha.toISOString());
-    const fechaEuropea = `${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()}`;
-    console.log("Europa:" + fechaEuropea);
-    const spanFecha = document.getElementById("fecha");
-    spanFecha.innerText = fechaEuropea;
-    const objetoCotizaciones = data.rates;
-    const ulCotizaciones = document.getElementById("cotizaciones");
-    while (ulCotizaciones.firstChild) {
-      ulCotizaciones.removeChild(ulCotizaciones.firstChild);
-    }
-    console.log(ulCotizaciones.childNodes);
-    const divisas = Object.keys(objetoCotizaciones);
-    divisas.forEach((divisa) => {
-      const liDivisa = document.createElement("li");
+const request = fetch(url);
 
-      const spanDivisa = document.createElement("span");
-      spanDivisa.classList.add("divisa");
-      spanDivisa.innerText = divisa + " : ";
+const bodyJson = request.then((respose) => respose.json());
 
-      const spanCotizacion = document.createElement("span");
-      spanCotizacion.classList.add("contravalor");
-      const cotizacion = objetoCotizaciones[divisa];
-      spanCotizacion.innerText = cotizacion;
-      liDivisa.appendChild(spanDivisa);
-      liDivisa.appendChild(spanCotizacion);
-      ulCotizaciones.appendChild(liDivisa);
-    });
-  });
+bodyJson.then((data) => procesarUltimaCotizacion(data));
+
+function procesarUltimaCotizacion(data) {
+  const spanFecha = document.getElementById("fecha");
+  const objetoFecha = data.date;
+  mostrarFecha(spanFecha, objetoFecha);
+
+  const ulCotizaciones = preparaListaCotizaciones();
+  const objetoCotizaciones = data.rates;
+  mostrarCotizacionesDivisas(ulCotizaciones, objetoCotizaciones);
+}
+
+function mostrarFecha(spanFecha, fechaCadena) {
+  console.log(fechaCadena);
+  const fechaNumber = Date.parse(fechaCadena);
+  console.log("Unix:" + fechaNumber);
+  const fecha = new Date(fechaNumber);
+  console.log("ISO:" + fecha.toISOString());
+  const fechaEuropea = `${fecha.getDate()}/${fecha.getMonth() + 1}/${fecha.getFullYear()}`;
+  console.log("Europa:" + fechaEuropea);
+
+  spanFecha.innerText = fechaEuropea;
+}
+
+function preparaListaCotizaciones() {
+  const ulCotizaciones = document.getElementById("cotizaciones");
+  while (ulCotizaciones.firstChild) {
+    ulCotizaciones.removeChild(ulCotizaciones.firstChild);
+  }
+  return ulCotizaciones;
+}
+
+function mostrarCotizacionesDivisas(ulCotizaciones, objetoCotizaciones) {
+  const camposDivisas = Object.keys(objetoCotizaciones);
+  camposDivisas.forEach((divisa) =>
+    agregarCotizacionDivisa(divisa, ulCotizaciones, objetoCotizaciones)
+  );
+}
+
+function agregarCotizacionDivisa(nombreDivisa, ulCotizaciones, objetoCotizaciones) {
+  const cotizacion = objetoCotizaciones[nombreDivisa];
+
+  const liDivisa = document.createElement("li");
+  const spanNombreDivisa = document.createElement("span");
+  const spanCotizacion = document.createElement("span");
+
+  spanNombreDivisa.classList.add("divisa");
+  spanNombreDivisa.innerText = nombreDivisa + " : ";
+
+  spanCotizacion.classList.add("contravalor");
+  spanCotizacion.innerText = cotizacion + " €";
+
+  liDivisa.appendChild(spanNombreDivisa);
+  liDivisa.appendChild(spanCotizacion);
+  ulCotizaciones.appendChild(liDivisa);
+}
 
 //   // usando esperas en lugar de promesas
 // async function obtenerDatos() {
