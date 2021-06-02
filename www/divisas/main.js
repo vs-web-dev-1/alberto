@@ -16,13 +16,10 @@ fetch(url)
     spanFecha.innerText = fechaEuropea;
     const objetoCotizaciones = data.rates;
     const ulCotizaciones = document.getElementById("cotizaciones");
-    ulCotizaciones.innerText = "";
-    // ulCotizaciones.childNodes.forEach((child) => {
-    //   console.log(child);
-    //   ulCotizaciones.removeChild(child.textContent);
-    // });
+    while (ulCotizaciones.firstChild) {
+      ulCotizaciones.removeChild(ulCotizaciones.firstChild);
+    }
     console.log(ulCotizaciones.childNodes);
-    // ulCotizaciones.innerText = JSON.stringify(objetoCotizaciones);
     const divisas = Object.keys(objetoCotizaciones);
     divisas.forEach((divisa) => {
       const liDivisa = document.createElement("li");
@@ -35,16 +32,14 @@ fetch(url)
       spanCotizacion.classList.add("contravalor");
       const cotizacion = objetoCotizaciones[divisa];
       spanCotizacion.innerText = cotizacion;
-
-      // liDivisa.innerText = divisa + " : " + cotizacion;
       liDivisa.appendChild(spanDivisa);
       liDivisa.appendChild(spanCotizacion);
       ulCotizaciones.appendChild(liDivisa);
     });
   });
 
+//   // usando esperas en lugar de promesas
 // async function obtenerDatos() {
-//   // esperas
 //   const response = await fetch(url);
 //   if (response.ok) {
 //     const data = await response.json();
